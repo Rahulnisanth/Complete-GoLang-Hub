@@ -1,5 +1,5 @@
 // MIN STRING LENGTH AFTER THE REMOVAL OF SUB-STRINGS :
-package dailystreaks
+package main
 
 func minLength(s string) int {
     stack := []rune{}

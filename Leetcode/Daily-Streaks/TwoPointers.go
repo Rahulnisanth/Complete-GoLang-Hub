@@ -1,5 +1,5 @@
 // SENTENCE SIMILARITY III :
-package dailystreaks
+package main
 
 import (
 	"strings"

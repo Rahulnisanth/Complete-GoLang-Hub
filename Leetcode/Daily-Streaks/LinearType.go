@@ -1,6 +1,6 @@
 package main
 
-// 
+// MINIMUM NUMBER OF SWAPS TO MAKE THE STRING BALANCED :
 func minSwaps(s string) int {
     count := 0
     for _, ch := range s {

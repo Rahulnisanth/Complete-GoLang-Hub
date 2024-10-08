@@ -1,5 +1,6 @@
 package main
 
+// Chess Knight game...
 import "math"
 
 var board = [8][8]int{}

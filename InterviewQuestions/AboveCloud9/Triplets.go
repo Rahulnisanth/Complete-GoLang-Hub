@@ -1,5 +1,6 @@
 package main
 
+// Find all the Triplets in the given array...
 func findTriplets(arr ...int) [][]int {
 	N := len(arr)
 	result := [][]int{}

@@ -18,3 +18,26 @@ func minLength(s string) int {
     }
     return len(stack)
 }
+
+
+// MAXIMUM WIDTH RAMP :
+func maxWidthRamp(nums []int) int {
+    N := len(nums)
+    stack := make([]int, N)
+    for i := 0; i < N; i++ {
+        if len(stack) == 0 || nums[i] < nums[stack[len(stack) - 1]] {
+            stack = append(stack, i)
+        }
+    }
+    result := 0
+    for j := N - 1; j >= 0; j-- {
+        for len(stack) > 0 && nums[j] >= nums[stack[len(stack) - 1]] {
+            result = max(result, j - stack[len(stack) - 1])
+            stack = stack[:len(stack) - 1]
+            if result == j {
+                return result
+            }
+        }
+    }
+    return result
+}

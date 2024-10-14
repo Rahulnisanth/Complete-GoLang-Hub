@@ -2,7 +2,7 @@ package main
 
 import (
 	"container/heap"
-	"fmt"
+	"math"
 	"sort"
 )
 
@@ -24,6 +24,7 @@ func (h *IntHeap) Pop() any {
 	return x
 }
 
+// Smallest Chair :
 func smallestChair(times [][]int, targetFriend int) int {
 	chairs := make([]int, 0, len(times))
 	for i := 0; i < len(times); i++ {
@@ -64,9 +65,20 @@ func smallestChair(times [][]int, targetFriend int) int {
 	return -1
 }
 
-func main() {
-	times := [][]int{{1, 4}, {2, 3}, {4, 6}, {5, 7}}
-	targetFriend := 2
-	result := smallestChair(times, targetFriend)
-	fmt.Println(result)
+
+// MAXIMUM SCORE AFTER APPLYING K OPERATIONS :
+func maxKelements(nums []int, k int) int64 {
+	h := &IntHeap{}
+	heap.Init(h)
+	for _, num := range nums {
+		heap.Push(h, -num)
+	}
+
+	var result int64
+	for i := 0; i < k; i++ {
+		item := -heap.Pop(h).(int)
+		heap.Push(h, -int(math.Ceil(float64(item)/3)))
+		result += int64(item)
+	}
+	return result
 }

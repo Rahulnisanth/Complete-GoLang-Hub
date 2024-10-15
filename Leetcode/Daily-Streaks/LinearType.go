@@ -31,3 +31,18 @@ func minAddToMakeValid(s string) int {
     }
     return open + close_needed
 }
+
+
+// SEPERATE THE WHITE AND BLACK BALLS :
+func minimumSteps(s string) int64 {
+    var result int64
+    zeroes := 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] == '0' {
+			zeroes++
+		} else if s[i] == '1' {
+			result += int64(zeroes)
+		}
+	}
+	return result
+}

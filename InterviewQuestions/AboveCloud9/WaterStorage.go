@@ -5,7 +5,7 @@ import (
 )
 
 // Function to calculate the water storage
-func waterStorage(heights []int) {
+func WaterStorage(heights []int) {
 	n := len(heights)
 	if n < 3 {
 		fmt.Println("Impossible to store water")

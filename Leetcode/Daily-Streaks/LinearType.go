@@ -45,3 +45,23 @@ func minimumSteps(s string) int64 {
 	}
 	return result
 }
+
+
+// MAXIMUM SWAPS TO MAKE THE INTEGER LARGEST :
+func maximumSwap(num int) int {
+	nums := []rune(strconv.Itoa(num))
+	for i := 0; i < len(nums); i++ {
+		idx := i
+		for j := len(nums) - 1; j > i; j-- {
+			if nums[j] > nums[idx] {
+				idx = j
+			}
+		}
+		if idx != i && nums[i] < nums[idx] {
+			nums[i], nums[idx] = nums[idx], nums[i]
+			result, _ := strconv.Atoi(string(nums))
+			return result
+		}
+	}
+	return num
+}
